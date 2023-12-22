@@ -18,23 +18,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import './index.css';
-// //import 'bootstrap/dist/css/bootstrap.css';
-// import LoginPage from './LoginPage'; // Import LoginPage
-// import reportWebVitals from './reportWebVitals';
-// import axios from 'axios';
-//
-// axios.defaults.baseURL = "http://localhost:8080/bit";
-//
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//     <React.StrictMode>
-//         <LoginPage /> {/* Render LoginPage directly */}
-//     </React.StrictMode>
-// );
-//
-// reportWebVitals();

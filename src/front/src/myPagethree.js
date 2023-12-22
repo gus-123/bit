@@ -95,10 +95,15 @@ export default function MemberEdit(props)  {
                 });
         }
 
-    const handleSaveAndFeedback = () => {
-        handleSave();
-        handleSaves();
+    const handleFeedback = (event) => {
+        event.preventDefault();
         openFeedbackPopup();
+    }
+
+    const handleSendFeed = (event) => {
+        event.preventDefault();
+        handleSave(event);
+        handleSaves(event);
     }
 
     return (
@@ -161,7 +166,7 @@ export default function MemberEdit(props)  {
                                     required>
                                 </input>
                             </div>
-                            <button className="feedback-btn" onClick={handleSaveAndFeedback}><span>피드백 받기</span></button>
+                            <button className="feedback-btn" onClick={handleFeedback}><span>피드백 받기</span></button>
                             <span className="Diary-title" id="diary-feedback">피드백</span>
                             <input
                                 type="text" /*ai 답변*/
@@ -170,6 +175,17 @@ export default function MemberEdit(props)  {
                                 onChange={handleFeedbackChange}
                             />
                         </form>
+                        {
+                            isFeedbackPopupVisible && (
+                                <div className="Popup-background">
+                                    <div className="DoubleCheck">
+                                        <span className="DoubleCheck-notice-b">피드백을 받으시겠습니까?</span><span className="DoubleCheck-notice-s">피드백은 하루에 1번 받으실 수 있고 받으신 후 에는 수정이 불가능 합니다.</span>
+                                        <button className="DoubleCheck-btn" id="okay-btn" onClick={handleSendFeed}><span>확인</span></button>
+                                        <button className="DoubleCheck-btn" id="no-btn" onClick={closeFeedbackPopup}><span>취소</span></button>
+                                    </div>
+                                </div>
+                            )
+                        }
                     </div>
                 </div>
 

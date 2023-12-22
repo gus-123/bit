@@ -1,10 +1,55 @@
-import React, {useState} from 'react';
+import React, { useState , useEffect } from 'react';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import './login.css';
 // import Footer from './footer';
 import Header from './header';
+import axios from 'axios';
 
 function MainPage() {
+
+    const [isProfileVisible, setIsProfileVisible] = useState(true); // 프필 박스가 보이는 게 기본
+    const [isYouMember, setIsYouMember] = useState(false);
+    const [isBirthday, setIsBirthday] = useState();
+
+    const  [member, setMember] = useState({profile_image:'', nickname_m: ''});
+    const data = JSON.parse(localStorage.getItem('data')); // localStorage에서 data 값을 문자열로 가져와서 객체로 변환
+    const urls = `/members/${data}`; // 객체의 id 속성을 url 경로에 넣음
+    const url = `/view/${data}`; // 객체의 id 속성을 url 경로에 넣음
+
+
+    useEffect(() => {
+        axios.get('/members')
+            .then((response) => {
+                setIsBirthday(response.data);
+            })
+            .catch((error) => {
+                console.log("Error while fetching books:", error);
+            });
+    }, []);
+
+    useEffect(() => {
+        setIsYouMember(!!isBirthday); // isBirthday가 trut이면 true, false면 false
+    }, [isBirthday]);
+
+        useEffect(() => {
+            const handleResize = () => {
+                if (window.innerWidth <= 1279) {
+                    setIsProfileVisible(false); // 프필 박스 숨김
+                } else {
+                    setIsProfileVisible(true);
+                }
+            };
+
+            handleResize();
+
+            window.addEventListener('resize', handleResize);
+
+            // 컴포넌트가 안 쓰일 때 이벤트 지움
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }, []);
+
     const [feedbackData, setFeedbackData] = useState({
         rec_ac: '', // 운동추천 부분
         rec_ac1: '',
@@ -103,6 +148,30 @@ function MainPage() {
 
                                     {/* <div className="graph-img"></div> */}
                                 </div>
+                            </div>
+                            <div className="profile-container">
+                                {/* 프로필 팝업 */}
+                                {isYouMember && isProfileVisible && (
+                                    <div className="profile-box align-items-center">
+                                        <div className="prf-img"><img src={member.profile_image} width={120} height={150}
+                                            alt="profile_image" className="main-logo"/></div>
+                                        <span className="prf-name">&nbsp;&nbsp;&nbsp;{member.nickname_m} 님</span>
+                                        <button className="myPage-btn"
+                                            onClick={() => { window.location.href = url; }}>
+                                            <span
+                                                className="myPage-text text-start fs-5 mr-3 text-secondary">
+                                                마이페이지</span>
+                                        </button>
+                                        <button className="calendar-btn"
+                                            onClick={() => { window.location.href = urls; }}>
+                                            <span
+                                                className="calendarPage-text text-start fs-5 mr-3 text-secondary">
+                                                캘린더</span>
+                                        </button>
+                                        <span className="logout-btn">로그아웃</span>
+                                        <i class="bi bi-house-door-fill"></i>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </main>       
