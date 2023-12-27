@@ -169,14 +169,17 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import photo from'./default_profile.png';
+import { useSidebar } from './sidebarContext';
 import axios from 'axios';
-//import './login.css';
+import './login.css';
 
 function Header() {
     const navigate = useNavigate();
     const location = useLocation();
     const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
     const [isMobileNavIconClose, setIsMobileNavIconClose] = useState(false);
+    const { toggleSidebar } = useSidebar();
+
     const data = JSON.parse(localStorage.getItem('data')); // localStorage에서 data 값을 문자열로 가져와서 객체로 변환
     const url = `/view/${data}`; // 마이페이지
     const urls = `/cal/${data}`; // 캘린더
@@ -185,6 +188,7 @@ function Header() {
 
     const toggleMobileNav = () => {
         setIsMobileNavVisible(!isMobileNavVisible);
+        toggleSidebar();
         setIsMobileNavIconClose(!isMobileNavIconClose);
     };
 
@@ -222,7 +226,6 @@ function Header() {
     }, []);
 
 
-
     useEffect(() => {
         axios.get(urlss)
             .then((response) => {
@@ -237,12 +240,6 @@ function Header() {
     if (!localStorage.getItem('birthday')) {
         localStorage.setItem('birthday', member.birthday);
     }
-
-
-
-
-
-
 
     return (
         <header className="header2">
@@ -268,13 +265,14 @@ function Header() {
                 <i className={`mobile-nav-toggle ${isMobileNavVisible ? 'mobile-nav-hide' : 'mobile-nav-show'} bi ${isMobileNavIconClose ? 'bi-x' : 'bi-list-ul'} fs-1`}
                     onClick={() => {
                         toggleMobileNav();
+                        toggleSidebar();
                     }}
                 ></i>
 
                 {/* 화면이 클 때 표시되는 마이페이지와 캘린더 버튼 */}
                 <div className={`navbar ml-auto ${isMobileNavVisible ? 'mobile-nav-hide' : ''}`}>
                     <Link
-                        to={localStorage.getItem('birthday') ? '/view/1' : '/mypage/1'} style={{ textDecoration: "none" }}
+                        to={localStorage.getItem('birthday') ? '/view/${data}' : '/mypage/${data}'} style={{ textDecoration: "none" }}
                         className={location.pathname === '/myPage/${data}' ? 'active' : ''}>
                         <span className="myPage-text fs-4 fw-bold">마이페이지</span>
                     </Link>
@@ -292,4 +290,3 @@ function Header() {
 }
 
 export default Header;
-

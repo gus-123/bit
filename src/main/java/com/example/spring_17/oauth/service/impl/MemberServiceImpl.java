@@ -66,6 +66,15 @@ public class MemberServiceImpl implements MemberService{
         //existingMember.setWeight(member.getWeight());
         //existingMember.setBMI_Value(member.getBMI_Value());
         Member calupdateMember = memberRepository.save(existingMember);
+        //bmi_value 업데이트 코드 추가
+        //bmi_value 업데이트 코드 추가
+        //memberRepository.update_BmiSix(member.getUid());
+        //memberRepository.update_BmiFive(member.getUid());
+        //memberRepository.update_BmiFour(member.getUid());
+        //memberRepository.update_BmiThree(member.getUid());
+        //memberRepository.update_BmiTwo(member.getUid());
+        //memberRepository.update_BmiOne(member.getUid());
+        //memberRepository.updateBmiValueByUid(member.getUid());
 
         return calupdateMember;
     }

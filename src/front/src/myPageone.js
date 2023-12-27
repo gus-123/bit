@@ -48,12 +48,12 @@ export default function MemberEdit() {
         const newMember = {
             height: height,
             weight: weight,
-            health_Level: health_Level,
-            flavor: flavor,
-            purpose: purpose,
-            health_Time: health_Time,
-            health_Num: health_Num,
-            location_Num: location_Num,
+            health_Level: health_Level || '가벼움',
+            flavor: flavor || '유산소 운동',
+            purpose: purpose || '체중 감량',
+            health_Time: health_Time || '30분 미만',
+            health_Num: health_Num || '1회',
+            location_Num: location_Num || '실내',
             etc_Hist: etc_Hist
         };
         const data = JSON.parse(localStorage.getItem('data')); // localStorage에서 data 값을 문자열로 가져와서 객체로 변환
@@ -62,10 +62,11 @@ export default function MemberEdit() {
         axios.put(urls, newMember)
             .then((response) => {
                 console.log("Book edited successfully.");
-                navigate(url); // url 경로로 이동
+                navigate('/view/${data}');
             })
             .catch((error) => {
                 console.log("Error while editing book:", error);
+                navigate('/view/${data}');
             });
     }
 
@@ -93,7 +94,7 @@ export default function MemberEdit() {
                         </div>
 
                         <div className="hib-info2">
-                            <label htmlFor="weight">2. 몸무게를 적어주세요.</label>
+                            <label className="info-question" htmlFor="weight">2. 몸무게를 적어주세요.</label>
                             <input
                                 onChange={(event) => {setWeight(event.target.value)}}
                                 value={weight}

@@ -50,9 +50,12 @@ const Calendar = () => {
                 ? 'this'
                 : 'other';
 
-            const isToday = viewYear === today.getFullYear() &&
-                viewMonth === today.getMonth() &&
-                +date === today.getDate();
+            const isThisMonth = i >= firstDateIndex && i < lastDateIndex + 1;
+
+            const isToday = isThisMonth &&
+                        viewYear === today.getFullYear() &&
+                        viewMonth === today.getMonth() &&
+                        +date === today.getDate();
 
             return (
                 <div 
@@ -62,7 +65,7 @@ const Calendar = () => {
                 >
                     <div className="date-itm">{date}</div>
                     <div className="date_event">
-                    <div className="event-itm">Day</div>
+                        <div className="event-itm">Day</div>
                     </div>
                 </div>
             );

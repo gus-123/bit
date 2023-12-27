@@ -12,7 +12,7 @@ export default function MemberList() {
 //    const  [healths, setHealths]  = useState([]);
 
 
-    const [height, setHeight] = useState('');
+        const [height, setHeight] = useState('');
         const [weight, setWeight] = useState('');
         const [health_Level, setHealth_Level] = useState('');
         const [flavor, setFlavor] = useState('');
@@ -51,12 +51,12 @@ export default function MemberList() {
             const newMember = {
                 height: height,
                 weight: weight,
-                health_Level: health_Level,
-                flavor: flavor,
-                purpose: purpose,
-                health_Time: health_Time,
-                health_Num: health_Num,
-                location_Num: location_Num,
+                health_Level: health_Level || '가벼움',
+                flavor: flavor || '유산소 운동',
+                purpose: purpose || '체중 감량',
+                health_Time: health_Time || '30분 미만',
+                health_Num: health_Num || '1회',
+                location_Num: location_Num || '실내',
                 etc_Hist: etc_Hist
             };
             const data = JSON.parse(localStorage.getItem('data')); // localStorage에서 data 값을 문자열로 가져와서 객체로 변환
