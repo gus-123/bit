@@ -36,6 +36,7 @@ import MyPageone from "./myPageone";
 import MyPagetwo from "./myPagetwo";
 import MyPagethree from "./myPagethree";
 import CalendarPage from "./calendarPage";
+import LoadingPage from './loadingPage';
 
 const App = () => {
     return (
@@ -52,6 +53,7 @@ const App = () => {
                         <Route path="/view/:id"  element={<MyPagetwo/>} />   //마이페이지 작성
                         <Route path="/cal/:id"  element={<MyPagethree/>} />  //캘린더 작성
                         <Route path="/calendar"  element={<CalendarPage/>} />
+                        <Route path="/loadingPage"  element={<LoadingPage/>} />
                     </Routes>
                 </SidebarProvider>
             </BrowserRouter>

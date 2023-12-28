@@ -1,15 +1,16 @@
 import React, {useState, useEffect } from 'react';
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import feedbackData from './mainPage';
+import LoadingPage from './loadingPage';
 import Header from './header';
 import './login.css';
-import { deleteBook } from './api';  // delete 공통 함수 : api.js
-import photo from'./default_profile.png';
+//import { deleteBook } from './api';  // delete 공통 함수 : api.js
+//import photo from'./default_profile.png';
 import axios from 'axios';
 
 export default function MemberEdit(props)  {
     const [selectedDate, setSelectedDate] = useState(null);
-
+    const [resultFeedback, setResultFeedback] = useState({});
     const [exercise, setExercise] = useState('');
     const [food, setFood] = useState('');
     const [feel, setFeel] = useState('');
@@ -37,6 +38,13 @@ export default function MemberEdit(props)  {
             .catch(function (error) {
                 console.log(error);
             })
+        axios.get('http://localhost:8000/api/feedback-list')
+        .then((response) => {
+            setResultFeedback(response.data);
+        })
+        .catch(function(error){
+            console.log("Error while",error);
+        });
     }, []);
 
 
@@ -100,10 +108,28 @@ export default function MemberEdit(props)  {
         openFeedbackPopup();
     }
 
-    const handleSendFeed = (event) => {
+    const handleSendFeed = async(event) => {
         event.preventDefault();
-        handleSave(event);
-        handleSaves(event);
+        navigate('/loadingPage');
+        try{
+            axios.post('http://localhost:8000/api/input_UserData')
+            .then((response) => {
+
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+            await axios.post('http://localhost:8000/api/result-feedback')
+                .then((response)=>{
+                })
+                .catch(function(error){
+                    console.log(error);
+                })
+            handleSave(event);
+            handleSaves(event);
+        } catch(error){
+            console.error("Error during additional action:",error);
+        }
     }
 
     return (
@@ -118,7 +144,6 @@ export default function MemberEdit(props)  {
                                 </button>
                         </div>
                     </div>
-
 
                     <div className="diary-tool">
                         <form>
@@ -168,12 +193,9 @@ export default function MemberEdit(props)  {
                             </div>
                             <button className="feedback-btn" onClick={handleFeedback}><span>피드백 받기</span></button>
                             <span className="Diary-title" id="diary-feedback">피드백</span>
-                            <input
-                                type="text" /*ai 답변*/
-                                className={'feedback-box'}
-                                value={feedbackData.rec_pd}
-                                onChange={handleFeedbackChange}
-                            />
+                                <div className={'feedback-box'}>
+                                    <span>{resultFeedback.rec_pd1}</span>
+                                </div>
                         </form>
                         {
                             isFeedbackPopupVisible && (

@@ -20,6 +20,7 @@ function MainPage() {
     const [isProfileVisible, setIsProfileVisible] = useState(true); // 프필 박스가 보이는 게 기본
     const [isYouMember, setIsYouMember] = useState(false);
     const [isBirthday, setIsBirthday] = useState();
+    const [resultFeedback,setResultFeedback]=useState({});
 //    const { isSidebarVisible } = useSidebar();
 
     const  [member, setMember] = useState({profile_image:'', nickname_m: ''});
@@ -58,6 +59,13 @@ function MainPage() {
             .catch((error) => {
                 console.log("Error while fetching books:", error);
             });
+        axios.get('http://localhost:8000/api/feedback-list')
+            .then(response => {
+                setResultFeedback(response.data);
+            })
+            .catch((error)=>{
+                console.log("Error ",error);
+            })
     }, []);
 
     useEffect(() => {
@@ -163,7 +171,7 @@ function MainPage() {
           const maxTop = containerHeight - profileBoxHeight - 200;
           const newTop = Math.min(maxTop, Math.max(200, scrollY));
 
-          const maxMove = 500;
+          const maxMove = 300;
           profileBox.style.top = Math.min(newTop, + maxMove) + 'px';
         }
       };
@@ -228,15 +236,15 @@ function MainPage() {
                         <div className="recom-PT-box text-center">
                             <div className="PT-type1-image"></div>
                             <div className='PT-type1-textbox'>
-                                <span className="PT-type1-text">윗몸일으키기</span>
+                                <span className="PT-type1-text">{resultFeedback.rec_ac1}</span>
                             </div>
                             <div className="PT-type2-image"></div>
                             <div className='PT-type2-textbox'>
-                                <span className="PT-type2-text">랜바이어푸흘귄기</span>
+                                <span className="PT-type2-text">{resultFeedback.rec_ac2}</span>
                             </div>
                             <div className="PT-type3-image"></div>
                             <div className='PT-type3-textbox'>
-                                <span className="PT-type3-text">축구</span>
+                                <span className="PT-type3-text">{resultFeedback.rec_ac3}</span>
                             </div>
                         </div>
                     </div>
@@ -247,19 +255,19 @@ function MainPage() {
                                 <div className='col-md-4 col-lg-3'>
                                     <div className="recom-Food-out-box1">
                                         <span className="food-time">아침</span>
-                                        <div className="recom-Food-in-box"></div>
+                                        <div className="recom-Food-in-box">{resultFeedback.rec_fd1}</div>
                                     </div>
                                 </div>
                                 <div className='col-md-4 col-lg-3'>
                                     <div className="recom-Food-out-box2">
                                         <span className="food-time">점심</span>
-                                        <div className="recom-Food-in-box"></div>
+                                        <div className="recom-Food-in-box">{resultFeedback.rec_fd2}</div>
                                     </div>
                                 </div>
                                 <div className='col-md-4 col-lg-3'>
                                     <div className="recom-Food-out-box3">
                                         <span className="food-time">저녁</span>
-                                        <div className="recom-Food-in-box"></div>
+                                        <div className="recom-Food-in-box">{resultFeedback.rec_fd3}</div>
                                     </div>
                                 </div>
                             </div>
@@ -273,7 +281,10 @@ function MainPage() {
                         <div className='d-flex justify-content-center align-items-center'>
                             <div className="BMI-graphBox">
                                 <span className="BMI-text position-absolute start-0 fs-5">BMI <br></br> (%)</span>
-                                <div className="BMI-graph-section"></div>
+                                <div className="BMI-graph-section">
+                                    <img src="/bmi_graph_1.png" alt="그래프 이미지"
+                                    className="BMI-graph-section" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -282,8 +293,8 @@ function MainPage() {
                         <div className='d-flex justify-content-center align-items-center'>
                             <div class="stress-title-box1"><span class="stress-food fs-3">음식</span></div>
                             <div class="stress-title-box2"><span class="stress-action fs-3">활동</span></div>
-                            <div class="stress-box1"></div>
-                            <div class="stress-box2"></div>
+                            <div class="stress-box1">{resultFeedback.rec_ta1}</div>
+                            <div class="stress-box2">{resultFeedback.rec_ta2}</div>
                         </div>
                     </div>
                 </div>

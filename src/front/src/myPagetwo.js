@@ -206,7 +206,7 @@ export default function MemberList() {
                             </div>
 
                             <div className="hib-info6">
-                                <label htmlFor="health_Time">6. 하루 운동 시간</label>
+                                <label className="info-question" htmlFor="health_Time">6. 하루 운동 시간</label>
                                 <select
                                     onChange={(event) => {setHealth_Time(event.target.value)}}
                                     value={health_Time}
@@ -224,7 +224,7 @@ export default function MemberList() {
                             </div>
 
                             <div className="hib-info7">
-                                <label htmlFor="health_Num">7. 일주일 운동 횟수</label>
+                                <label className="info-question" htmlFor="health_Num">7. 일주일 운동 횟수</label>
                                 <select
                                     onChange={(event) => {setHealth_Num(event.target.value)}}
                                     value={health_Num}
@@ -241,7 +241,7 @@ export default function MemberList() {
                                 </select>
                             </div>
                             <div className="hib-info8">
-                                <label htmlFor="location_Num">8. 선호하는 운동 장소</label>
+                                <label className="info-question" htmlFor="location_Num">8. 선호하는 운동 장소</label>
                                 <select
                                     onChange={(event) => {setLocation_Num(event.target.value)}}
                                     value={location_Num}
@@ -256,7 +256,7 @@ export default function MemberList() {
                             </div>
 
                             <div className="hib-info9">
-                                <label htmlFor="etc_Hist">9. 기타 건강 상태</label>
+                                <label className="info-question" htmlFor="etc_Hist">9. 기타 건강 상태</label>
                                 <input
                                     onChange={(event) => {setEtc_Hist(event.target.value)}}
                                     value={etc_Hist}

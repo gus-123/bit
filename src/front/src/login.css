@@ -1,3 +1,40 @@
+@font-face {
+    font-family: 'paybooc-ExtraBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-ExtraBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'paybooc-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'paybooc-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'paybooc-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NPSfontBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .no-scroll {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -47,7 +84,7 @@
     overflow: hidden;
     width: 100%;
     height: 150px;
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
 }
@@ -280,18 +317,18 @@
     top:0px;
 }
 .login-top-text {
-    color:rgba(255, 255, 255, 1);
-    width:600px;
-    height:100px;
-    position:absolute;
-    left:50%;
-    top:220px;
-    transform: translate(-50%);
-    font-weight: bold;
-    font-family:Jaldi;
-    text-align:center;
-    font-size:90px;
-    letter-spacing:0;
+	color:rgba(255, 255, 255, 1);
+	width:600px;
+	height:100px;
+	position:absolute;
+	left:50%;
+	top:220px;
+	transform: translate(-50%);
+	font-weight: bold;
+	font-family: 'NPSfontBold';
+	text-align:center;
+	font-size:95px;
+	letter-spacing:0;
 }
 .login-middle-text {
     color:rgba(29.375860802829266, 128.61027002334595, 220.21142274141312, 1);
@@ -301,9 +338,9 @@
     left:50%;
     top:450px;
     transform: translate(-50%);
-    font-family:Inter;
+    font-family: 'GmarketSansMedium';
     text-align:center;
-    font-size:45px;
+    font-size:50px;
     font-weight: bold;
     letter-spacing:0;
 }
@@ -375,143 +412,144 @@ main {
 
 .mainPage {
     padding-bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #F6F6F6;
-    width: 100%;
-    position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #F6F6F6;
+	width: 100%;
+	position: relative;
 }
 .bodyWrap {
-    width: 100%;
+	width: 100%;
     height: 600px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+	justify-content: center;
+	align-items: center;
 }
 .container {
     display: flex;
-    background-color: #fff;
+	background-color: #fff;
     width: 1055px;
-    height: 3000px;
+	height: 3000px;
     justify-content: center;
     align-items: center;
-    position: relative;
+	position: relative;
 }
 
 /* ====== 글귀 부분 ====== */
 .phrase-container {
-    overflow:hidden;
-    width:600px;
-    height:300px;
-    position:absolute;
-    top: 150px;
+	overflow:hidden;
+	width:600px;
+	height:300px;
+	position:absolute;
+	top: 150px;
 }
 .phrase {
-    color:rgba(51.27392426133156, 51.27392426133156, 51.27392426133156, 1);
-    width:600px;
-    height:100px;
-    position:absolute;
-    font-family:Jaldi;
-    text-align:center;
-    font-size:30px;
-    letter-spacing:0;
+	color:rgba(51.27392426133156, 51.27392426133156, 51.27392426133156, 1);
+	width:600px;
+	height:100px;
+	position:absolute;
+	font-family:Jaldi;
+	text-align:center;
+	font-size:30px;
+	letter-spacing:0;
 }
 .phrase-line {
-    border:1px solid rgba(120.37792816758156, 120.37792816758156, 120.37792816758156, 1);
-    width:430px;
-    height:0px;
-    position:absolute;
-    top:200px;
-    left:50%;
-    transform: translate(-50%);
+	border:1px solid rgba(120.37792816758156, 120.37792816758156, 120.37792816758156, 1);
+	width:430px;
+	height:0px;
+	position:absolute;
+	top:200px;
+	left:50%;
+	transform: translate(-50%);
 }
 
 /* ====== 운동 추천 부분 ====== */
 .recom-pt{
-    overflow:hidden;
-    width:800px;
-    height:400px;
-    position:absolute;
-    top: 550px;
+	overflow:hidden;
+	width:800px;
+	height:400px;
+	position:absolute;
+	top: 550px;
     left: 50%;
     transform: translate(-50%);
 }
 .recom-PT-title-box, .recom-PT-box {
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position:absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position:absolute;
 }
 .recom-PT-title-box {
-    background-color:rgba(112.62499898672104, 215.40455907583237, 255, 1);
-    width:757px;
-    height:55px;
-    border-radius: 90px;
-    left:50%;
-    transform: translate(-50%);
+	background-color:rgba(112.62499898672104, 215.40455907583237, 255, 1);
+	width:757px;
+	height:55px;
+	border-radius: 90px;
+	left:50%;
+	transform: translate(-50%);
 }
 .recom-PT-title-text {
-    color:rgba(255, 255, 255, 1);
-    width:146px;
-    height:55px;
-    position:absolute;
-    left:40%;
-    font-family:Inter;
-    text-align:center;
-    font-size:35px;
-    letter-spacing:0;
-    z-index: 2;
+	color:rgba(255, 255, 255, 1);
+	width:146px;
+	height:55px;
+	position:absolute;
+	left:40%;
+	font-family:Inter;
+	text-align:center;
+	font-size:35px;
+	letter-spacing:0;
+	z-index: 2;
+
 }
 .recom-PT-box {
-    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color:rgba(229.1569483280182, 245.6965336203575, 255, 1);
-    width:765px;
-    height:310px;
-    top:70px;
-    position:absolute;
-    border-radius:60px;
-    z-index: 1;
-    left:50%;
-    transform: translate(-50%);
+	box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
+	background-color:rgba(229.1569483280182, 245.6965336203575, 255, 1);
+	width:765px;
+	height:310px;
+	top:70px;
+	left:50%;
+	position:absolute;
+	border-radius:60px;
+	z-index: 1;
+	transform: translate(-50%);
 }
 .PT-type1-image,
 .PT-type2-image,
 .PT-type3-image {
-    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
+	box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
     background-color: rgba(255, 255, 255, 1);
     width: 220px;
     height: 207px;
-    top: 20px;
+	top: 20px;
     position: absolute;
     border-radius: 30px;
 }
 .PT-type1-image {
-    left: 3%;
+	left: 3%;
 }
 .PT-type3-image {
-    left: 68%;
+	left: 68%;
 }
 
 .PT-type1-textbox,
 .PT-type2-textbox,
 .PT-type3-textbox {
     /* 기존 스타일 유지 */
-    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
+	box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
     background-color: rgba(255, 255, 255, 1);
     width: 220px;
     height: 50px;
-    top: 245px;
+	top: 245px;
     position: absolute;
-    border-radius: 30px; /* 적절한 값으로 조정 */
+    border-radius: 30px;
 }
 .PT-type1-textbox {
-    left: 3%;
+	left: 3%;
 }
 .PT-type3-textbox {
-    left: 68%;
+	left: 68%;
 }
 
 .PT-type1-text,
@@ -524,33 +562,34 @@ main {
     font-family: Inter;
     text-align: center;
     font-size: 24px;
+	font-family: 'paybooc-Medium';
     letter-spacing: 0;
 
-    left: 3%;
-    top: 60%;
+	left: 3%;
+    top: 65%;
     transform: translateY(-35%);
 }
 /* ====== 운동 추천 부분 끝 ====== */
 
 /* ====== 식단표 부분 ====== */
 .recom-food {
-    overflow:hidden;
-    width:1000px;
-    height:400px;
-    position:absolute;
-    top: 1100px;
+	overflow:hidden;
+	width:1000px;
+	height:400px;
+	position:absolute;
+	top: 1100px;
     left: 50%;
     transform: translate(-50%);
 }
 .recom-Food-title {
-    color:rgba(28.68749924004078, 28.68749924004078, 28.68749924004078, 1);
-    position:absolute;
-    left:50%;
-    font-family:Inter;
-    font-size:36px;
-    font-weight: bold;
-    letter-spacing:0;
-    transform: translate(-50%);
+	color:rgba(28.68749924004078, 28.68749924004078, 28.68749924004078, 1);
+	position:absolute;
+	left:50%;
+	font-family:Inter;
+	font-size:36px;
+	letter-spacing:0;
+	transform: translate(-50%);
+	font-family: 'paybooc-ExtraBold';
 }
 
 .recom-Food-out-box1,
@@ -559,9 +598,10 @@ main {
     background-color: rgba(217.0000022649765, 217.0000022649765, 217.0000022649765, 1);
     width: 320px;
     height: 318px;
-    top: 60px;
+	top: 70px;
     z-index: 1;
-    position:absolute;
+	position:absolute;
+	padding-top: 10px;
 }
 .recom-Food-out-box1 {
     left: calc(50% - 490px);
@@ -576,131 +616,149 @@ main {
 
 
 .recom-Food-in-box {
-    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
     background-color: rgba(248.09374898672104, 248.09374898672104, 248.09374898672104, 1);
     width: 320px;
     height: 265px;
-    top: 62px;
-    position:absolute;
+	top: 62px;
+	position:absolute;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+	font-size: 25px;
+	font-family: 'paybooc-Medium';
 }
 .food-time {
-    color: rgba(0, 0, 0, 1);
-    font-family: Inter;
-    text-align: center;
-    font-size: 30px;
-    letter-spacing: 0;
-    height:71px;
+	color: rgba(0, 0, 0, 1);
+	text-align: center;
+	font-size: 30px;
+	font-family: 'paybooc-Bold';
+	letter-spacing: 0;
+	height:71px;
 }
 /* ====== 식단표 부분 끝 ====== */
 
-.hidden-line {
-    top: 1500px;
-    position: absolute
-}
 
 /* ====== BMI 부분 ====== */
 .week-bmi {
-    overflow:hidden;
-    width:1000px;
-    height:600px;
-    position:absolute;
-    top: 1700px;
+	overflow:hidden;
+	width:1000px;
+	height:600px;
+	position:absolute;
+	top: 1700px;
     left: 50%;
     transform: translate(-50%);
 }
 .BMI-title {
-    color:rgba(28.68749924004078, 28.68749924004078, 28.68749924004078, 1);
-    width:428px;
-    height:80px;
-    position: absolute;
-    font-family:Inter;
-    text-align:left;
-    font-size:36px;
-    letter-spacing:0;
+	color:rgba(28.68749924004078, 28.68749924004078, 28.68749924004078, 1);
+	width:428px;
+	height:80px;
+	position: absolute;
+	font-family:Inter;
+	text-align:left;
+	font-size:36px;
+	letter-spacing:0;
+	font-family: 'paybooc-ExtraBold';
 }
 .BMI-graphBox {
-    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color:rgba(255, 245.38726061582565, 194.92075502872467, 1);
-    width:967px;
-    height:528px;
-    top: 60px;
-    position:absolute;
+	box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
+	background-color:rgba(255, 245.38726061582565, 194.92075502872467, 1);
+	width:967px;
+	height:528px;
+	top: 70px;
+	position:absolute;
     transform: translateX(-50%);
     left: 50%;
 }
 .BMI-graph-section {
-    background-color:rgb(253, 246, 212);
-    width:895px;
-    height:528px;
-    position:absolute;
-    border-left: 1px solid rgb(192, 192, 192);
-    top: 0px;
-    left: 70px;
+	background-color:rgb(253, 246, 212);
+	width:895px;
+	height:528px;
+	position:absolute;
+	border-left: 1px solid rgb(192, 192, 192);
+	top: 0px;
+	left: 70px;
 }
+.BMI-graph-section img {
+	width:895px;
+	height:528px;
+	display: block;
+	margin: auto;
+	left: 1px;
+  }
 .BMI-text {
-    font-weight: 500;
-    top: 200px;
-    padding-left: 15px;
+	font-weight: 500;
+	top: 250px;
+	padding-left: 15px;
 }
 /* ====== BMI 부분 끝 ====== */
 
 
 /* ====== 스트레스 관리 부분 ====== */
 .stress-release {
-    overflow:hidden;
-    width:1000px;
-    height:460px;
-    position:absolute;
-    top: 2450px;
-    left: 50%;
-    transform: translate(-50%);
+	overflow:hidden;
+	width:1000px;
+	height:460px;
+	position:absolute;
+	top: 2450px;
+    left: 55%;
+    transform: translate(-55%);
 }
 .stress-title {
-    color:rgba(28.68749924004078, 28.68749924004078, 28.68749924004078, 1);
-    width:400px;
-    height:50px;
-    position:absolute;
-    top:30px;
-    font-family:Inter;
-    text-align:left;
-    font-size:36px;
-    letter-spacing:0;
+	color:rgba(28.68749924004078, 28.68749924004078, 28.68749924004078, 1);
+	width:400px;
+	height:50px;
+	position:absolute;
+	top:30px;
+	font-family:Inter;
+	text-align:left;
+	font-size:36px;
+	letter-spacing:0;
+	font-family: 'paybooc-ExtraBold';
 }
 .stress-title-box1,
 .stress-title-box2 {
-    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color:rgba(223.125, 249.2625054717064, 255, 1);
-    width:480px;
-    height:73px;
-    position:absolute;
-    left:0px;
-    top: 90px;
+	box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
+	background-color:rgba(223.125, 249.2625054717064, 255, 1);
+	width:480px;
+	height:73px;
+	position:absolute;
+	left:0px;
+	top: 100px;
 }
 .stress-title-box2{
-    left:488px;
+	left:488px;
 }
 .stress-food,
 .stress-action {
-    color:rgba(28.68749924004078, 28.68749924004078, 28.68749924004078, 1);
+	color:rgba(28.68749924004078, 28.68749924004078, 28.68749924004078, 1);
     position:absolute;
     font-weight: 700;
-    top: 20px;
-    padding-left: 15px;
-    left: 50%;
-    transform: translate(-50%);
+	font-family: 'paybooc-Bold';
+	top: 20px;
+	padding-left: 15px;
+	left: 50%;
+	transform: translate(-50%);
 }
 .stress-box1,
 .stress-box2 {
-    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color:rgba(248.09374898672104, 248.09374898672104, 248.09374898672104, 1);
-    width:480px;
-    height:245px;
-    position:absolute;
-    top:168px;
-    left: 0px;
+	box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
+	background-color:rgba(248.09374898672104, 248.09374898672104, 248.09374898672104, 1);
+	width:480px;
+	height:245px;
+	position:absolute;
+	top:178px;
+	left: 0px;
+	font-size: 28px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+	font-family: 'paybooc-Medium';
 }
 .stress-box2 {
-    left:488px;
+	left:488px;
 }
 /* ====== 스트레스 관리 끝 ====== */
 
@@ -1635,7 +1693,37 @@ main {
 }
 
 /*  ====== 다이어리 페이지 끝 ====== */
-
+.loading-page {
+    background-color:rgba(0, 0, 0, 0.7599999904632568);
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+.loading-text {
+    color:rgba(255, 255, 255, 1);
+    width:528px;
+    height:56px;
+    position:absolute;
+    left:50%;
+    top:350px;
+    font-family:Inter;
+    text-align:center;
+    font-size:45px;
+    letter-spacing:0;
+    transform: translate(-50%);
+}
+.loading-gif {
+    width:100px;
+    height:100px;
+    position:absolute;
+    left:50%;
+    top:480px;
+    background-repeat:no-repeat;
+    background-size:cover;
+    transform: translate(-50%);
+}
 
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
